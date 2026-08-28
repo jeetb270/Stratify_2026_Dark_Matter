@@ -1,0 +1,34 @@
+file,column,type,description
+order_log.csv,order_id,Text,Unique order identifier
+order_log.csv,order_timestamp,DateTime,Date and time the order was placed (YYYY-MM-DD HH:MM:SS)
+order_log.csv,city,Text,"City the order was placed in: Pune, Hyderabad or Jaipur"
+order_log.csv,store_id,Text,Dark store that fulfilled the order; joins to store_master
+order_log.csv,delivery_pincode,Text,Pincode of the delivery address; joins to pincode_density
+order_log.csv,delivery_lat,Decimal,Latitude of the delivery point (jittered for privacy)
+order_log.csv,delivery_lon,Decimal,Longitude of the delivery point (jittered for privacy)
+order_log.csv,basket_value_inr,Decimal,Order value in INR before discounts
+order_log.csv,promised_delivery_min,Integer,Delivery promise in minutes; 10 for every order
+order_log.csv,actual_delivery_min,Decimal,Actual minutes from order placement to delivery
+store_master.csv,store_id,Text,Dark store identifier
+store_master.csv,city,Text,City the store operates in
+store_master.csv,store_lat,Decimal,Latitude of the store
+store_master.csv,store_lon,Decimal,Longitude of the store
+store_master.csv,store_pincode,Text,Pincode the store sits in
+store_master.csv,monthly_rent_inr,Integer,Monthly rent in INR
+store_master.csv,monthly_fixed_cost_inr,Integer,"Other monthly fixed cost in INR (staff, utilities, maintenance)"
+store_master.csv,go_live_date,Date,Date the store opened
+candidate_sites.csv,site_id,Text,Shortlisted property identifier
+candidate_sites.csv,city,Text,City the property is in
+candidate_sites.csv,site_lat,Decimal,Latitude of the property
+candidate_sites.csv,site_lon,Decimal,Longitude of the property
+candidate_sites.csv,site_pincode,Text,Pincode the property sits in
+candidate_sites.csv,carpet_area_sqft,Integer,Usable carpet area in square feet
+candidate_sites.csv,monthly_rent_inr,Integer,Quoted monthly rent in INR
+candidate_sites.csv,one_time_fitout_cost_inr,Integer,"One-time fit-out capex in INR (racking, cold room, power, signage)"
+pincode_density.csv,pincode,Text,Pincode
+pincode_density.csv,city,Text,City
+pincode_density.csv,pincode_centroid_lat,Decimal,Latitude of the pincode centroid
+pincode_density.csv,pincode_centroid_lon,Decimal,Longitude of the pincode centroid
+pincode_density.csv,population_density_per_sqkm,Integer,Residents per square kilometre
+pincode_density.csv,area_sqkm,Decimal,Pincode area in square kilometres
+pincode_density.csv,estimated_population,Integer,Estimated residents = density x area
